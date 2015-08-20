@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body ng-controller="mainController">
-    <div class="pure-g">
+    <div class="pure-g pure-g-r ">
       <div class="pure-u-2-5">
         <div class="content-box">
           <h1>Buscador Ubícate</h1>
@@ -45,8 +45,8 @@
           </div>
           <div ng-show="selectedArea">
             <div class="content-box">
-              <div ng-repeat="career in careers | filter:career.area=selectedArea">
-                <div ng-repeat="country in career.countries">
+              <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
+                <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
                   <div class="item-search" ng-repeat="university in country.universities">
                     <p><strong>Carrera:</strong> {{ career.name }}</p>
                     <p><strong>Área:</strong> {{ career.area }}</p>
