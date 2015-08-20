@@ -14,23 +14,24 @@
           <div class="pure-form pure-form-aligned">
             <div class="pure-control-group">
               <label for="">Área:</label>
-              <select name="area" ng-model="selectedArea">
+              <select name="area" ng-model="selectedArea"
+                ng-options="area for area in areas">
                   <option value="">---Selecciona un área---</option>
-                  <option value="Aeronáutica">Aeronáutica</option>
-                  <option value="Educación">Educación</option>
               </select>
             </div>
 
             <div class="pure-control-group" ng-show="selectedArea">
               <label for="">Carrera:</label>
-              <select name="career" ng-model="selectedCareer">
+              <select name="career" ng-model="selectedCareer"
+                ng-options="career.name for career in careers | filter:career.area=selectedArea">
                   <option value="">---Todas---</option>
               </select>
             </div>
 
             <div class="pure-control-group" ng-show="selectedCareer">
               <label for="">País:</label>
-              <select name="country" ng-model="selectedCountry">
+              <select name="country" ng-model="selectedCountry"
+                ng-options="country.name for country in selectedCareer.countries">
                   <option value="">---Todos---</option>
               </select>
             </div>
