@@ -27,7 +27,10 @@
 	min-height: 400px 
 	background: $cell-background
 	padding-bottom: 1em
-	h2
+	// results message
+	.itemcountry:not(:last-of-type)
+		&::after
+			content: ', '
 	// item of search
 	.item-search
 		overflow: hidden

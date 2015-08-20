@@ -44,7 +44,22 @@
 
       <div class="pure-u-3-5 results">
         <div class="content-box" ng-if="selectedCareer">
-          <h2>Resultados:</h2>
+
+          <p>
+            Estas son las universidades en 
+            <strong class="itemcountry" 
+              ng-if="selectedCareer.countries.length > 1 && !selectedCountry"
+              ng-repeat="country in selectedCareer.countries">
+              {{ country.name }}</strong>
+            <strong ng-if="selectedCountry">
+              {{ selectedCountry.name }}
+            </strong>
+            <strong ng-if="selectedCareer.countries.length == 1">
+              {{ selectedCareer.countries[0].name }}
+            </strong>
+            donde puedes estudiar la carrera de <b>{{ selectedCareer.name }}</b>
+          </p>
+
           <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
