@@ -32,7 +32,7 @@
 
             <div class="pure-control-group" ng-show="selectedCareer">
               <label for="">País:</label>
-              <select name="country" ng-model="selectedCountry" ng-if="selectedCareer.countries.length > 1"
+              <select name="country" ng-model="selectedCountry" ng-show="selectedCareer.countries.length > 1"
                 ng-options="country as country.name for country in selectedCareer.countries">
                   <option value="">---Todos---</option>
               </select>
