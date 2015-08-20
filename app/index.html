@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="searcherUbicate">
+  <head>
+    <meta charset="UTF-8">
+    <title>Buscador Ubícate</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body ng-controller="mainController">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-2-5">
+        <div class="content-box">
+          <h1>Buscador Ubícate</h1>
+          
+          <div class="pure-form pure-form-aligned">
+            <div class="pure-control-group">
+              <label for="">Área:</label>
+              <select name="area" ng-model="selectedArea">
+                  <option value="">---Selecciona un área---</option>
+                  <option value="Aeronáutica">Aeronáutica</option>
+                  <option value="Educación">Educación</option>
+              </select>
+            </div>
+
+            <div class="pure-control-group" ng-show="selectedArea">
+              <label for="">Carrera:</label>
+              <select name="career" ng-model="selectedCareer">
+                  <option value="">---Todas---</option>
+              </select>
+            </div>
+
+            <div class="pure-control-group" ng-show="selectedCareer">
+              <label for="">País:</label>
+              <select name="country" ng-model="selectedCountry">
+                  <option value="">---Todos---</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-3-5">
+          <div class="content-box"> 
+            <h2>Resultados</h2>
+          </div>
+      </div>
+    </div>
+
+    <script src="allscripts.js"></script>
+  </body>
+</html>

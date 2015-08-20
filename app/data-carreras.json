@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Administración aeronáutica militar",
+    "area": "Aeronáutica",
+    "countries": [
+      {
+        "name": "Ecuador",
+        "universities": ["ESPE"]
+      }
+    ],
+  },
+  {
+    "name": "Ciencias aeronáuticas",
+    "area": "Aeronáutica",
+    "countries": [
+      {
+        "name": "Perú",
+        "universities": ["USMP"]
+      }
+    ],
+  },
+  {
+    "name": "Educación básica",
+    "area": "Educación",
+    "countries": [
+      {
+        "name": "Ecuador",
+        "universities": ["UCUENCA", "UNEMI", "UPSE", "UTMACHALA", "UTA", "UNIDEC", "UNACH"]
+      }
+    ],
+  },
+  {
+    "name": "Idiomas",
+    "area": "Educación",
+    "countries": [
+      {
+        "name": "Ecuador",
+        "universities": ["UPACIFICO", "ESPE", "UCE", "UNACH"]
+      },
+      {
+        "name": "Perú",
+        "universities": ["UCV", "UNSM"]
+      }
+    ],
+  }
+]

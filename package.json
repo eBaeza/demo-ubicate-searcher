@@ -1,0 +1,17 @@
+{
+  "name": "demo-ubicate-searcher",
+  "version": "1.0.0",
+  "description": "Demo úbicate searcher in Angular JS",
+  "repository": "https://github.com/eBaeza/angular-unittesting",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-jsmin": "^0.1.4",
+    "gulp-livereload": "^3.8.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "~2.0.1",
+    "gulp-watch": "^4.3.4"
+  }
+}
