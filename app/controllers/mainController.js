@@ -1,5 +1,5 @@
 ;(function() { 'use strict';
-  var app = angular.module('searcherUbicate', []);
+  var app = angular.module('mainController', []);
 
   // main controller
   app.controller('mainController', function mainController($scope, $http) {
@@ -9,7 +9,6 @@
   	// get data json
   	$http.get('data-carreras.json').then(function (response) {
   		$scope.careers = response.data;
-  		// console.log(response.data);
   	});
   });
 }());

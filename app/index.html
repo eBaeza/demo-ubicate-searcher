@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body ng-controller="mainController">
-    <div class="pure-g pure-g-r ">
-      <div class="pure-u-2-5">
+    <h1 class="txt-center">Buscador Ubícate</h1>
+    
+    <div class="pure-g pure-g-r container">
+      <div class="pure-u-2-5 filters">
         <div class="content-box">
-          <h1>Buscador Ubícate</h1>
-          
-          <div class="pure-form pure-form-aligned">
+          <div class="pure-form pure-form-stacked"> 
+            <legend>¿Quieres saber dónde puedes estudiar la carrera que te interesa?</legend>
+
             <div class="pure-control-group">
               <label for="">Área:</label>
               <select name="area" ng-model="selectedArea"
@@ -31,7 +33,7 @@
             <div class="pure-control-group" ng-show="selectedCareer">
               <label for="">País:</label>
               <select name="country" ng-model="selectedCountry"
-                ng-options="country.name for country in selectedCareer.countries">
+                ng-options="country.name as country.name for country in selectedCareer.countries">
                   <option value="">---Todos---</option>
               </select>
             </div>
@@ -39,24 +41,20 @@
         </div>
       </div>
 
-      <div class="pure-u-3-5">
-          <div class="content-box"> 
-            <h2>Resultados</h2>
-          </div>
-          <div ng-show="selectedArea">
-            <div class="content-box">
-              <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
-                <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
-                  <div class="item-search" ng-repeat="university in country.universities">
-                    <p><strong>Carrera:</strong> {{ career.name }}</p>
-                    <p><strong>Área:</strong> {{ career.area }}</p>
-                    <p><strong>País:</strong> {{ country.name }}</p>
-                    <p><strong>Universidad:</strong> {{ university }}</p>
-                  </div>
-                </div>
+      <div class="pure-u-3-5 results">
+        <div class="content-box" ng-show="selectedArea">
+          <h2>Resultados:</h2>
+          <div ng-if="selectedArea" ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
+            <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
+              <div class="item-search" ng-repeat="university in country.universities">
+                <p><strong>Área:</strong> {{ career.area }}</p>
+                <p><strong>Carrera:</strong> {{ career.name }}</p>
+                <p><strong>País:</strong> {{ country.name }}</p>
+                <p><strong>Universidad:</strong> {{ university }}</p>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
 

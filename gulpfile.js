@@ -42,9 +42,9 @@ gulp.task('sass', function () {
 // watch modified files
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch(['app/**/*.js', '!app/allscripts.js'], ['js']);
   gulp.watch('app/**/*.html', ['html']);
+  gulp.watch(['app/**/*.js', '!app/allscripts.js'], ['js']);
   gulp.watch(['app/css/**/*.scss','app/css/**/*.sass'], ['sass']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['sass', 'js', 'watch']);

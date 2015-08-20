@@ -1,4 +1,4 @@
 ;(function() { 'use strict';
   // Init Angular Application
-  var app = angular.module('searcherUbicate', []);
+  var app = angular.module('searcherUbicate', ['mainController']);
 }());
