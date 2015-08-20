@@ -11,4 +11,5 @@
   		$scope.careers = response.data;
   	});
   });
+
 }());

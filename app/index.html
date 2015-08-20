@@ -32,19 +32,20 @@
 
             <div class="pure-control-group" ng-show="selectedCareer">
               <label for="">País:</label>
-              <select name="country" ng-model="selectedCountry"
+              <select name="country" ng-model="selectedCountry" ng-if="selectedCareer.countries.length > 1"
                 ng-options="country as country.name for country in selectedCareer.countries">
                   <option value="">---Todos---</option>
               </select>
+              <div class="singlecountry" ng-if="selectedCareer.countries.length == 1">{{ selectedCareer.countries[0].name }}</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="pure-u-3-5 results">
-        <div class="content-box" ng-show="selectedArea">
+        <div class="content-box" ng-if="selectedCareer">
           <h2>Resultados:</h2>
-          <div ng-if="selectedArea" ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
+          <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
                 <p><strong>Área:</strong> {{ career.area }}</p>
