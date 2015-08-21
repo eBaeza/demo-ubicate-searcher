@@ -13,7 +13,7 @@
     <!-- loaders scripts -->
     <script id="loaders" src="js/loadersscripts.js"></script>
     <script>
-      loadCSS("css/styles.css"); // load CSS
+      loadCSS("css/styles.css", document.getElementById("loaders")); // load CSS
       // load JS asynchronously.
       $script(['js/allscripts.js'], function() { 
         angular.bootstrap(document, ['searcherUbicate']); // when all is done, execute bootstrap angular application
