@@ -9,6 +9,4 @@ node_modules/
 npm-debug.log
 
 # Files generated
-app/css/*.css
-app/js/loadersscripts.js
-app/js/allscripts.js
+app/dist/

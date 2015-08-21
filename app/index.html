@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Buscador Ubícate</title>
 
     <!-- prevent the Angular html template displayed -->
@@ -11,15 +12,18 @@
     </style>
 
     <!-- loaders scripts -->
-    <script id="loaders" src="js/loadersscripts.js"></script>
+    <script id="loaders" src="dist/js/vendorsloaders.js"></script>
     <script>
-      loadCSS("css/styles.css", document.getElementById("loaders")); // load CSS
+      // load CSS
+      loadCSS("dist/css/styles.css", document.getElementById("loaders"));
       // load JS asynchronously.
-      $script(['js/allscripts.js'], function() { 
+      $script([
+        'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js',
+        'dist/js/appscripts.js'
+      ], function() { 
         angular.bootstrap(document, ['searcherUbicate']); // when all is done, execute bootstrap angular application
       });
     </script>
-    <!-- /loaders scripts -->
   </head>
   <body ng-cloak ng-controller="mainController">
     <h1 class="txt-center">Buscador Ubícate</h1>
@@ -80,7 +84,7 @@
           <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
-                <img class="universitylogo" src="http://placehold.it/84x84/dddddd/?text=Logo">
+                <img class="universitylogo" ng-src="http://placehold.it/84x84/dddddd/?text=Logo">
                 <p><strong>País:</strong> {{ country.name }}</p>
                 <p><strong>Universidad:</strong> {{ university }}</p>
               </div>
