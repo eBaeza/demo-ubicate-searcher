@@ -9,4 +9,5 @@ node_modules/
 npm-debug.log
 
 # Files generated
-app/dist/
+dist/css/
+dist/js/

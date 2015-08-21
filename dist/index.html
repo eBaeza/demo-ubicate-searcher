@@ -12,14 +12,14 @@
     </style>
 
     <!-- loaders scripts -->
-    <script id="loaders" src="dist/js/vendorsloaders.js"></script>
+    <script id="loaders" src="js/vendorsloaders.js"></script>
     <script>
       // load CSS
-      loadCSS("dist/css/styles.css", document.getElementById("loaders"));
+      loadCSS("css/styles.css", document.getElementById("loaders"));
       // load JS asynchronously.
       $script([
         'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js',
-        'dist/js/appscripts.js'
+        'js/appscripts.js'
       ], function() { 
         angular.bootstrap(document, ['searcherUbicate']); // when all is done, execute bootstrap angular application
       });
