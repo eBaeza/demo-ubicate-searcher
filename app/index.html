@@ -63,8 +63,6 @@
           <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
-                <p><strong>Área:</strong> {{ career.area }}</p>
-                <p><strong>Carrera:</strong> {{ career.name }}</p>
                 <p><strong>País:</strong> {{ country.name }}</p>
                 <p><strong>Universidad:</strong> {{ university }}</p>
               </div>
