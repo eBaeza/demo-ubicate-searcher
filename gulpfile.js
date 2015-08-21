@@ -14,16 +14,31 @@ gulp.task('html', function() {
     .pipe(livereload());
 });
 
-// concat and minify js
+// concat and minify js loaders
+gulp.task('jsloaders', function() {
+  gulp.src([
+      './app/js/vendors/loadCSS.js',
+      './app/core/angular-loader.min.js',
+      './app/js/vendors/scripts-loader.min.js'
+    ])
+    .pipe(concat('loadersscripts.js'))
+    // .pipe(jsmin())
+    .pipe(gulp.dest('./app/js/'))
+    .pipe(notify({ message : "jsloaders"}))
+    .pipe(livereload());;
+});
+
+// concat and minify js scripts
 gulp.task('js', function() {
   gulp.src([
-      './app/core/*.js',
+      './app/core/*.js', 
+      '!./app/core/angular-loader.min.js',
       './app/app.js',
       './app/controllers/*.js'
     ])
     .pipe(concat('allscripts.js'))
     // .pipe(jsmin())
-    .pipe(gulp.dest('./app/'))
+    .pipe(gulp.dest('./app/js/'))
     .pipe(notify({ message : "js"}))
     .pipe(livereload());;
 });
@@ -43,8 +58,11 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   livereload.listen();
   gulp.watch('app/**/*.html', ['html']);
-  gulp.watch(['app/**/*.js', '!app/allscripts.js'], ['js']);
-  gulp.watch(['app/css/**/*.scss','app/css/**/*.sass'], ['sass']);
+  gulp.watch([
+    'app/**/*.js', 
+    '!app/js/allscripts.js', 
+    '!app/js/loadersscripts.js'], ['js', 'jsloaders']);
+  gulp.watch(['app/css/**/*.s*ss'], ['sass']);
 });
 
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['sass', 'jsloaders', 'js', 'watch']);

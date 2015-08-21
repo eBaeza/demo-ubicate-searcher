@@ -10,4 +10,5 @@ npm-debug.log
 
 # Files generated
 app/css/*.css
-app/allscripts.js
+app/js/loadersscripts.js
+app/js/allscripts.js

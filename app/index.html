@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="searcherUbicate">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Buscador Ubícate</title>
-    <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no">
+    <title>Buscador Ubícate</title>
+
+    <!-- prevent the Angular html template displayed -->
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important; }
+    </style>
+
+    <!-- loaders scripts -->
+    <script id="loaders" src="js/loadersscripts.js"></script>
+    <script>
+      loadCSS("css/styles.css"); // load CSS
+      // load JS asynchronously.
+      $script(['js/allscripts.js'], function() { 
+        angular.bootstrap(document, ['searcherUbicate']); // when all is done, execute bootstrap angular application
+      });
+    </script>
+    <!-- /loaders scripts -->
   </head>
-  <body ng-controller="mainController">
+  <body ng-cloak ng-controller="mainController">
     <h1 class="txt-center">Buscador Ubícate</h1>
     
     <div class="pure-g pure-g-r container">
+      <!-- filters container -->
       <div class="pure-u-2-5 filters">
         <div class="content-box">
           <div class="pure-form pure-form-stacked"> 
             <legend>¿Quieres saber dónde puedes estudiar la carrera que te interesa?</legend>
-
+            <!-- select area -->
             <div class="pure-control-group">
               <label for="">Área:</label>
               <select name="area" ng-model="selectedArea"
@@ -22,7 +38,7 @@
                   <option value="">---Selecciona un área---</option>
               </select>
             </div>
-
+            <!-- select career -->
             <div class="pure-control-group" ng-show="selectedArea">
               <label for="">Carrera:</label>
               <select name="career" ng-model="selectedCareer"
@@ -30,7 +46,7 @@
                   <option value="">---Selecciona una carrera---</option>
               </select>
             </div>
-
+            <!-- select country -->
             <div class="pure-control-group" 
               ng-show="selectedCareer && selectedCareer.countries.length > 1">
               <label for="">País:</label>
@@ -45,6 +61,7 @@
 
       <div class="pure-u-3-5 results">
         <div class="content-box" ng-if="selectedCareer">
+          <!-- message of results -->
           <p>
             Estas son las universidades en 
             <strong class="itemcountry" 
@@ -59,7 +76,7 @@
             </strong>
             donde puedes estudiar la carrera de <b>{{ selectedCareer.name }}</b>
           </p>
-
+          <!-- items of results -->
           <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
@@ -72,7 +89,5 @@
         </div>
       </div>
     </div>
-
-    <script src="allscripts.js"></script>
   </body>
 </html>
