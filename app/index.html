@@ -26,17 +26,17 @@
               <label for="">Carrera:</label>
               <select name="career" ng-model="selectedCareer"
                 ng-options="career.name for career in careers | filter:career.area=selectedArea">
-                  <option value="">---Todas---</option>
+                  <option value="">---Selecciona una carrera---</option>
               </select>
             </div>
 
-            <div class="pure-control-group" ng-show="selectedCareer">
+            <div class="pure-control-group" 
+              ng-show="selectedCareer && selectedCareer.countries.length > 1">
               <label for="">País:</label>
-              <select name="country" ng-model="selectedCountry" ng-show="selectedCareer.countries.length > 1"
+              <select name="country" ng-model="selectedCountry"
                 ng-options="country as country.name for country in selectedCareer.countries">
-                  <option value="">---Todos---</option>
+                  <option value="">---Todos los países---</option>
               </select>
-              <div class="singlecountry" ng-if="selectedCareer.countries.length == 1">{{ selectedCareer.countries[0].name }}</div>
             </div>
           </div>
         </div>
@@ -63,6 +63,7 @@
           <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
             <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
               <div class="item-search" ng-repeat="university in country.universities">
+                <img class="universitylogo" src="http://placehold.it/84x84/dddddd/?text=Logo">
                 <p><strong>País:</strong> {{ country.name }}</p>
                 <p><strong>Universidad:</strong> {{ university }}</p>
               </div>
