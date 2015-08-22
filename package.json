@@ -11,6 +11,8 @@
     "gulp-jsmin": "^0.1.4",
     "gulp-livereload": "^3.8.0",
     "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "~2.0.1",
     "gulp-watch": "^4.3.4"
   }
