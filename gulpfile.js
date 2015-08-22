@@ -43,7 +43,8 @@ gulp.task('inject-loaders', ['vendors-loaders'], function () {
       .pipe(replace(/(\/\*\* START_loaders \*\*\/)(.|[\r\n])*(\/\*\* END_loaders \*\*\/)/g, content))
       .pipe(rename('index.html'))
       .pipe(gulp.dest('dist/'))
-      .pipe(notify({ message : 'inject loaders'}));
+      .pipe(notify({ message : 'inject loaders'}))
+      .pipe(livereload());;
   });
 });
 
