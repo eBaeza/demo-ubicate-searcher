@@ -11,3 +11,4 @@ npm-debug.log
 # Files generated
 dist/css/
 dist/js/
+dist/index.html
